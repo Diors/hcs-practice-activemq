@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /ActiveMQDemo
+
+spring:
+  jms:
+    pub-sub-domain: false #如果是点对点消息队列，此处默认为false，如果是订阅发布，那么这里设置为true
+  activemq:
+    broker-url: tcp://10.0.0.2:61616
+    user: admin
+    password: admin
+    in-memory: false
+    #MQ连接池
+    pool:
+      enabled: true
+      max-connections: 50
+      idle-timeout: 30000
+      expiry-time: 10000
+    queueName: demo.queue
+    topicName: myTopic
